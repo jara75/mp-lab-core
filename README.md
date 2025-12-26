@@ -58,4 +58,4 @@ Ciencia: Prototipar la Ecuación Maestra V10.1 en Python para validar los output
 
 Frontend: Construir el componente de Timeline que permita seleccionar un $t_0$ y congelar el estado (Snapshot).
 
-Autoridad Técnica: El Marcante / Alter-Ego Digital MP.
+Autoridad Técnica: Andrés Jaramillo
