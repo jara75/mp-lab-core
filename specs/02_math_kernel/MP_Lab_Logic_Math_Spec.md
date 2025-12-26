@@ -5,44 +5,30 @@ Base Oficial: Apéndice Académico V10.1 (Corregido) - Dinámica de Vorticidad R
 
 1. DICCIONARIO DE VARIABLES (EL LENGUAJE DEL SISTEMA)
 
-Símbolo                Variable / Descripción                Naturaleza              Definición Operativa / Psicológica
-
-$A$                    Atributos del producto                Material                Valor intrínseco tangible y funcional.
-
-$S$                    Oferta de servicio                    Material                Condiciones de acceso y desempeño.
-
-$M_{pe}$               Coherencia                            Relacional              Alineación identitaria (Cálculo trigonométrico).
-
-$U(t)$                 Comunía                               Clima                   Habitabilidad y escudo contra la interferencia.
-
-$P$                    Propósito                             Vectorial               Fuerza negentrópica activa (Sentido).
-
-$\Sigma$               Interferencia Externa                 Entrópica               Ruido, competencia y saturación ambiental.
-
-$V(t)$                 Valor Personizante                    Sistémica               Nivel energético global del sistema.
-
-$\Phi(t)$              Flujo Relacional                      Dinámica                Intercambio instantáneo de valor.
-
-$PRN(t)$               Patrimonio Relacional                 Acumulativa             Capital histórico (Brand Equity).      
-
-$H(t)$                 Habituación                           Entrópica               Memoria entrópica por monotonía (Aburrimiento).
-  
-$R_{MP}$               Resistencia Activa                    Identidad               Fuerza de coherencia interna y voluntad de ser.
-
-$R_{P}$                Resistencia Pasiva                    Entropía                Inercia del mercado, cinismo, escepticismo.
-
-$\Delta R$             Diferencial de Resistencia            Motor                   Generador de Tensión Nodal ($R_{MP} - R_{P}$).
-
-$\eta$                 Conversión Patrimonial                Empírico                Coeficiente de acoplamiento financiero.
+| Símbolo    | Variable / Descripción         | Naturaleza    | Definición Operativa / Psicológica                         |
+| :---       | :---                           | :---          | :---                                                       |
+| A          | Atributos del producto         | Material      | Valor intrínseco tangible y funcional.                     |
+| S          | Oferta de servicio             | Material      | Condiciones de acceso y desempeño.                         |
+| Mpe        | Coherencia                     | Relacional    | Alineación identitaria (Cálculo trigonométrico).           |
+| U(t)       | Comunía                        | Clima         | Habitabilidad y escudo contra la interferencia.            |
+| P          | Propósito                      | Vectorial     | Fuerza negentrópica activa (Sentido).                      |
+| Σ          | Interferencia Externa          | Entrópica     | Ruido, competencia y saturación ambiental.                 |
+| V(t)       | Valor Personizante             | Sistémica     | Nivel energético global del sistema.                       |
+| Φ(t)       | Flujo Relacional               | Dinámica      | Intercambio instantáneo de valor.                          |
+| PRN(t)     | Patrimonio Relacional          | Acumulativa   | Capital histórico (Brand Equity).                          |
+| H(t)       | Habituación                    | Entrópica     | Memoria entrópica por monotonía (Aburrimiento).            |
+| R_MP       | Resistencia Activa             | Identidad     | Fuerza de coherencia interna y voluntad de ser.            |
+| R_P        | Resistencia Pasiva             | Entropía      | Inercia del mercado, cinismo, escepticismo.                |
+| ΔR         | Diferencial de Resistencia     | Motor         | Generador de Tensión Nodal (R_MP - R_P).                   |
+| η          | Conversión Patrimonial         | Empírico      | Coeficiente de acoplamiento financiero.    
 
 
 
 2. ECUACIONES MAESTRAS (EL KERNEL FÍSICO)
-
 El backend debe implementar estas ecuaciones exactas para calcular el estado en cada paso de tiempo $t$.
 
-A. Ecuación General del Valor ($V_{10.1}$)
 
+A. Ecuación General del Valor ($V_{10.1}$)
 La fórmula integra Potencial, Propósito, Protección Ambiental y Memoria Histórica.
 
 $$V(t) = \left[ (A+S) \cdot M_{pe} \cdot e^{\alpha U(t)} \right] \cdot \frac{e^{\beta P}}{1 + \Sigma e^{-\gamma U(t)}} + \eta \int_{t_0}^{t} \Phi(\tau) d\tau$$
@@ -119,19 +105,4 @@ Especificación generada por El Marcante V2 - Basada estrictamente en Apéndice 
 
 _________
 
-| Símbolo    | Variable / Descripción         | Naturaleza    | Definición Operativa / Psicológica                         |
-| :---       | :---                           | :---          | :---                                                       |
-| A          | Atributos del producto         | Material      | Valor intrínseco tangible y funcional.                     |
-| S          | Oferta de servicio             | Material      | Condiciones de acceso y desempeño.                         |
-| Mpe        | Coherencia                     | Relacional    | Alineación identitaria (Cálculo trigonométrico).           |
-| U(t)       | Comunía                        | Clima         | Habitabilidad y escudo contra la interferencia.            |
-| P          | Propósito                      | Vectorial     | Fuerza negentrópica activa (Sentido).                      |
-| Σ          | Interferencia Externa          | Entrópica     | Ruido, competencia y saturación ambiental.                 |
-| V(t)       | Valor Personizante             | Sistémica     | Nivel energético global del sistema.                       |
-| Φ(t)       | Flujo Relacional               | Dinámica      | Intercambio instantáneo de valor.                          |
-| PRN(t)     | Patrimonio Relacional          | Acumulativa   | Capital histórico (Brand Equity).                          |
-| H(t)       | Habituación                    | Entrópica     | Memoria entrópica por monotonía (Aburrimiento).            |
-| R_MP       | Resistencia Activa             | Identidad     | Fuerza de coherencia interna y voluntad de ser.            |
-| R_P        | Resistencia Pasiva             | Entropía      | Inercia del mercado, cinismo, escepticismo.                |
-| ΔR         | Diferencial de Resistencia     | Motor         | Generador de Tensión Nodal (R_MP - R_P).                   |
-| η          | Conversión Patrimonial         | Empírico      | Coeficiente de acoplamiento financiero.    
+
