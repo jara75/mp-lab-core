@@ -119,10 +119,8 @@ El sistema se considera funcionalmente correcto solo si:
 
 ____________________
 
-🧬 MP-LAB V1.0 — BLUEPRINT DE ARQUITECTURA DE SOFTWAREParadigma: State-Centric Simulation EngineCore Logic: Marcaje Personizante (MP) V10.1Target: Google Antigravity Dev Team1. PRINCIPIOS DE INGENIERÍA (THE MANIFESTO)State over Metrics: No guardamos métricas sueltas. Guardamos Vectores de Estado Relacional (VER) completos asociados a un timestamp $t$.Immutable History: El pasado (Rastro Relacional) es Read-Only. La base de datos histórica es un append-only log de estados confirmados.Multiverse Branching: La simulación no sobreescribe datos. Crea "ramas" temporales (Branch A, Branch B) divergentes desde un $t_0$, estilo Git.Stochastic Output: El backend nunca devuelve un escalar único para el futuro. Devuelve tensores de probabilidad (arrays de distribución).2. MODELO DE DATOS (THE ATOMIC UNIT)La unidad fundamental de la DB es el Snapshot del Sistema en un instante $t$. Este objeto contiene dos estructuras separadas: el Vector de Estado Físico (Resultado de Navegación) y las Variables del Sistema (Motores de Cálculo).Estructura JSON del Snapshot (Snapshot_t){
-  "timestamp": "ISO-8601 (YYYY-MM-DD)",
-  "type": "REAL" | "SIMULATION_A" | "SIMULATION_B",
 
+```
   // 1. EL VECTOR DE ESTADO RELACIONAL (Vs) - El Output Físico (Apendice V10.1 Sec 6.2)
   // Representa la ubicación y cinética de la marca en el espacio relacional.
   "relational_state_vector_Vs": {
@@ -157,6 +155,7 @@ ____________________
     "calibration_profile_id": "v1.2"
   }
 }
+```
 3. PIPELINE DE PROCESAMIENTO (THE BACKEND FLOW)El sistema opera en 4 capas secuenciales estrictas.CAPA 1: INGESTA & NORMALIZACIÓN (The Cleaning)Input: CSVs, APIs externas (Salesforce, Analytics), Logs manuales.Process: Alineación temporal. Todo se normaliza a una frecuencia base (ej: Diaria o Semanal).Output: Raw_Time_Series_Data.CAPA 2: MOTOR DE TRADUCCIÓN HEURÍSTICA (The IP Core)Input: Raw_Data + Translation_Rules (Configuración del Consultor).Logic: Mapeo de métricas físicas a variables metafísicas del bloque system_physics_variables.Output: System_Variables_History.CAPA 3: MOTOR DE SIMULACIÓN Y CÁLCULO (The Oracle)Input: System_Variables(t) + Intervention.Logic:Calcular $V(t)$ usando la Ecuación Maestra.Integrar flujo para obtener Energía $E$ (PRN).Derivar Momento $p$.Determinar Posición $x$ usando Matriz de Transición Markoviana.Output: Probabilistic_Fan_Chart.CAPA 4: MÓDULO DE CALIBRACIÓN (The Scientist)Logic: Comparación de curvas ($Curve_{Sim}$ vs $Curve_{Real}$).Loop: Ajuste de coeficientes ($\alpha, \beta, \gamma$) mediante descenso de gradiente o ajuste manual hasta minimizar el error cuadrático medio (MSE).4. ARQUITECTURA TÉCNICA SUGERIDA (STACK)| Componente              | Tecnología Recomendada              | Justificación                                                                  |
 | :---                    | :---                                | :---                                                                           |
 | Backend Calculation     | Python (FastAPI + NumPy/Pandas)     | Necesario para cálculo matricial pesado y Monte Carlo.                         |
