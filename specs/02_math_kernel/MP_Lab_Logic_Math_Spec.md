@@ -24,7 +24,6 @@ Base Oficial: Apéndice Académico V10.1 (Corregido) - Dinámica de Vorticidad R
 
 
 
-
 2. ECUACIONES MAESTRAS (EL KERNEL FÍSICO)
 El backend debe implementar estas ecuaciones exactas para calcular el estado en cada paso de tiempo $t$.
 
@@ -36,8 +35,8 @@ $$V(t) = \left[ (A+S) \cdot M_{pe} \cdot e^{\alpha U(t)} \right] \cdot \frac{e^{
 
 Nota Dev: El término integral se computa iterativamente como PRN_new = PRN_old + (Phi_t * delta_t * eta).
 
-B. Dinámica de Flujo Instantáneo ($\Phi$)
 
+B. Dinámica de Flujo Instantáneo ($\Phi$)
 El flujo de valor no es constante; depende de la Tensión Nodal y la Energía Relacional disponible.
 
 $$\Phi(t) = \frac{\text{sgn}(\Delta R(t)) \cdot ER(t)}{T_{nodal}(t) + \epsilon}$$
@@ -48,8 +47,8 @@ $$ER(t) = k \cdot T_{nodal}(t) \cdot [1 - H(t)] \cdot e^{-\Delta t / \tau}$$
 
 Interpretación: Si la Habituación $H(t)$ llega a 1 (aburrimiento total), la Energía $ER$ cae a 0, y el Flujo $\Phi$ se detiene.
 
-C. Función de Coherencia ($M_{pe}$)
 
+C. Función de Coherencia ($M_{pe}$)
 Calculada trigonométricamente mediante producto punto de vectores normalizados.
 
 $$M_{pe} = \cos(\theta) = \frac{\vec{v}_{d} \cdot \vec{v}_{p}}{|\vec{v}_{d}| \cdot |\vec{v}_{p}|}$$
@@ -63,15 +62,14 @@ $0.0$: Irrelevancia ($90^\circ$).
 $-1.0$: Incoherencia/Traición ($180^\circ$).
 
 D. Ley de Habituación ($H$)
-
 Modelado del decaimiento del interés en ausencia de novedades (Momentos de la Verdad).
 
 $$H(t) = 1 - e^{-\lambda_h (t - t_{last\_MdV})}$$
 
 Trigger: Un nuevo MdV resetea $t_{last\_MdV}$ al tiempo actual, haciendo que $H(t)$ caiga a 0 instantáneamente (reactivación).
 
-3. LÓGICA DE SIMULACIÓN Y TRANSICIÓN
 
+3. LÓGICA DE SIMULACIÓN Y TRANSICIÓN
 Motor Markoviano (Dependiente de Energía)
 
 Las probabilidades de transición en la matriz $M$ no son estáticas. Dependen de si la energía supera un umbral de activación (Efecto Túnel).
@@ -88,8 +86,8 @@ Muerte Térmica: Si $T_{nodal} \approx 0$. (Sistema estático).
 
 Ruptura: Si $T_{nodal} > T_{critico}$. (Conflicto abierto).
 
-4. VALIDACIÓN DE CALIBRACIÓN (BACKTESTING)
 
+4. VALIDACIÓN DE CALIBRACIÓN (BACKTESTING)
 Para el módulo de calibración (Capa 9), el error se minimiza comparando la curva simulada con la real, ajustando los coeficientes libres:
 
 $\alpha$ (Sensibilidad a Comunía)
