@@ -45,7 +45,36 @@ Estructura JSON del Vector de Estado (VER)
     "calibration_version": "v1.2" // Qué reglas de traducción se usaron
   }
 }
+______
 
+{
+  "timestamp": "ISO-8601 (YYYY-MM-DD)",
+  "type": "REAL" | "SIMULATION_A" | "SIMULATION_B",
+  "state_vector": {
+    "identity": {
+      "P": float,       // Magnitud Propósito (0-10)
+      "A_S": float,     // Oferta Base (0-10)
+      "B": float        // Coherencia (0-1)
+    },
+    "energy": {
+      "V": float,       // Valor Relacional Total
+      "U": float,       // Nivel de Comunía
+      "PRN": float      // Patrimonio Relacional Neto
+    },
+    "dynamics": {
+      "H": float,       // Tasa de Habituación
+      "h_last": float,  // Última Huella registrada
+      "sigma": float    // Interferencia externa
+    }
+  },
+  "metadata": {
+    "source_event_id": "string", // Link al evento crudo que causó este estado
+    "calibration_version": "v1.2" // Qué reglas de traducción se usaron
+  }
+}
+
+
+––––––
 
 3. PIPELINE DE PROCESAMIENTO (THE BACKEND FLOW)
 
