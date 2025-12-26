@@ -24,6 +24,7 @@ Base Oficial: Apéndice Académico V10.1 (Corregido) - Dinámica de Vorticidad R
 
 
 
+
 2. ECUACIONES MAESTRAS (EL KERNEL FÍSICO)
 El backend debe implementar estas ecuaciones exactas para calcular el estado en cada paso de tiempo $t$.
 
