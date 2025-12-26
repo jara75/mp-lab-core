@@ -46,7 +46,7 @@ Estructura JSON del Vector de Estado (VER)
     "calibration_version": "v1.2" // Qué reglas de traducción se usaron
   }
 }
-
+```
 
 3. PIPELINE DE PROCESAMIENTO (THE BACKEND FLOW)
 
