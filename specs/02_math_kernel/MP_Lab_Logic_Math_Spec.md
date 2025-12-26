@@ -1,1 +1,133 @@
-🧮 MP-LAB V1.0 — ESPECIFICACIÓN DE LÓGICA Y MATEMÁTICAPropósito: Definir las reglas de negocio y ecuaciones que gobiernan la simulación.Base Oficial: Apéndice Académico V10.1 (Corregido) - Dinámica de Vorticidad Relacional.1. DICCIONARIO DE VARIABLES (EL LENGUAJE DEL SISTEMA)SímboloVariable / DescripciónNaturalezaDefinición Operativa / Psicológica$A$Atributos del productoMaterialValor intrínseco tangible y funcional.$S$Oferta de servicioMaterialCondiciones de acceso y desempeño.$M_{pe}$CoherenciaRelacionalAlineación identitaria (Cálculo trigonométrico).$U(t)$ComuníaClimaHabitabilidad y escudo contra la interferencia.$P$PropósitoVectorialFuerza negentrópica activa (Sentido).$\Sigma$Interferencia ExternaEntrópicaRuido, competencia y saturación ambiental.$V(t)$Valor PersonizanteSistémicaNivel energético global del sistema.$\Phi(t)$Flujo RelacionalDinámicaIntercambio instantáneo de valor.$PRN(t)$Patrimonio RelacionalAcumulativaCapital histórico (Brand Equity).$H(t)$HabituaciónEntrópicaMemoria entrópica por monotonía (Aburrimiento).$R_{MP}$Resistencia ActivaIdentidadFuerza de coherencia interna y voluntad de ser.$R_{P}$Resistencia PasivaEntropíaInercia del mercado, cinismo, escepticismo.$\Delta R$Diferencial de ResistenciaMotorGenerador de Tensión Nodal ($R_{MP} - R_{P}$).$\eta$Conversión PatrimonialEmpíricoCoeficiente de acoplamiento financiero.2. ECUACIONES MAESTRAS (EL KERNEL FÍSICO)El backend debe implementar estas ecuaciones exactas para calcular el estado en cada paso de tiempo $t$.A. Ecuación General del Valor ($V_{10.1}$)La fórmula integra Potencial, Propósito, Protección Ambiental y Memoria Histórica.$$V(t) = \left[ (A+S) \cdot M_{pe} \cdot e^{\alpha U(t)} \right] \cdot \underbrace{\frac{e^{\beta P}}{1 + \Sigma e^{-\gamma U(t)}}}_{\text{Factor Elevador & Escudo}} + \underbrace{\eta \int_{t_0}^{t} \Phi(\tau) d\tau}_{\text{Patrimonio (Memoria)}}$$Nota Dev: El término integral se computa iterativamente como PRN_new = PRN_old + (Phi_t * delta_t * eta).B. Dinámica de Flujo Instantáneo ($\Phi$)El flujo de valor no es constante; depende de la Tensión Nodal y la Energía Relacional disponible.$$\Phi(t) = \frac{\text{sgn}(\Delta R(t)) \cdot ER(t)}{T_{nodal}(t) + \epsilon}$$Donde la Energía Relacional Activa ($ER$) está condicionada por la Habituación:$$ER(t) = k \cdot T_{nodal}(t) \cdot [1 - H(t)] \cdot e^{-\Delta t / \tau}$$Interpretación: Si la Habituación $H(t)$ llega a 1 (aburrimiento total), la Energía $ER$ cae a 0, y el Flujo $\Phi$ se detiene.C. Función de Coherencia ($M_{pe}$)Calculada trigonométricamente mediante producto punto de vectores normalizados.$$M_{pe} = \cos(\theta) = \frac{\vec{v}_{d} \cdot \vec{v}_{p}}{|\vec{v}_{d}| \cdot |\vec{v}_{p}|}$$Rango:$1.0$: Coherencia Total ($0^\circ$).$0.0$: Irrelevancia ($90^\circ$).$-1.0$: Incoherencia/Traición ($180^\circ$).D. Ley de Habituación ($H$)Modelado del decaimiento del interés en ausencia de novedades (Momentos de la Verdad).$$H(t) = 1 - e^{-\lambda_h (t - t_{last\_MdV})}$$Trigger: Un nuevo MdV resetea $t_{last\_MdV}$ al tiempo actual, haciendo que $H(t)$ caiga a 0 instantáneamente (reactivación).3. LÓGICA DE SIMULACIÓN Y TRANSICIÓNMotor Markoviano (Dependiente de Energía)Las probabilidades de transición en la matriz $M$ no son estáticas. Dependen de si la energía supera un umbral de activación (Efecto Túnel).$$P_{i \to j} \propto \exp\left( \frac{\Delta R(t) \cdot \kappa_{ij}}{\text{dist}(i,j)^\gamma} \right)$$Regla de Negocio: Si $ER(t) > E_{critico}$, se habilitan transiciones no-lineales (saltos directos de "Indiferente" a "Fiel").Condiciones de Estabilidad (Watchdog)El sistema debe alertar si la simulación entra en zonas inestables:Muerte Térmica: Si $T_{nodal} \approx 0$. (Sistema estático).Ruptura: Si $T_{nodal} > T_{critico}$. (Conflicto abierto).4. VALIDACIÓN DE CALIBRACIÓN (BACKTESTING)Para el módulo de calibración (Capa 9), el error se minimiza comparando la curva simulada con la real, ajustando los coeficientes libres:$\alpha$ (Sensibilidad a Comunía)$\beta$ (Sensibilidad a Propósito)$\gamma$ (Eficacia del Escudo)$\lambda_h$ (Velocidad de olvido)$$MSE = \frac{1}{n} \sum (V_{sim} - V_{real})^2$$Especificación generada por El Marcante V2 - Basada estrictamente en Apéndice V10.1.
+% MP-LAB — ESPECIFICACIÓN DE LÓGICA Y MATEMÁTICA (V10.1)
+% Listo para Overleaf — Archivo standalone
+
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+\geometry{margin=2.5cm}
+
+\title{MP-LAB V1.0 \\ \large Especificación de Lógica y Matemática}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Propósito}
+Definir las reglas de negocio y ecuaciones que gobiernan la simulación MP-Lab según el Apéndice Académico V10.1 (Dinámica de Vorticidad Relacional).
+
+---
+
+\section{Diccionario de Variables}
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Símbolo & Variable & Naturaleza & Definición Operativa \\ 
+\midrule
+$A$ & Atributos del producto & Material & Valor intrínseco tangible y funcional. \\
+$S$ & Oferta de servicio & Material & Condiciones de acceso y desempeño. \\
+$M_{pe}$ & Coherencia & Relacional & Alineación identitaria (cálculo trigonométrico). \\
+$U(t)$ & Comunía & Clima & Habitabilidad y escudo contra interferencia. \\
+$P$ & Propósito & Vectorial & Fuerza negentrópica activa (sentido). \\
+$\Sigma$ & Interferencia Externa & Entrópica & Ruido, competencia y saturación. \\
+$V(t)$ & Valor Personizante & Sistémica & Nivel energético global del sistema. \\
+$\Phi(t)$ & Flujo Relacional & Dinámica & Intercambio instantáneo de valor. \\
+$PRN(t)$ & Patrimonio Relacional & Acumulativa & Memoria histórica (Brand Equity). \\
+$H(t)$ & Habituación & Entrópica & Memoria entrópica por monotonía (aburrimiento). \\
+$R_{MP}$ & Resistencia Activa & Identidad & Voluntad de coherencia interna. \\
+$R_{P}$ & Resistencia Pasiva & Entropía & Inercia del mercado, cinismo, escepticismo. \\
+$\Delta R$ & Diferencial de Resistencia & Motor & Generador de tensión nodal ($R_{MP}-R_P$). \\
+$\eta$ & Conversión Patrimonial & Empírico & Coeficiente de acoplamiento financiero. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+---
+
+\section{Ecuaciones Maestras}
+
+\subsection{Ecuación General del Valor ($V_{10.1}$)}
+\begin{equation}
+V(t) = \left[(A+S)M_{pe}e^{\alpha U(t)}\right] \cdot \frac{e^{\beta P}}{1 + \Sigma e^{-\gamma U(t)}} + \eta \int_{t_0}^{t} \Phi(\tau)\,d\tau
+\end{equation}
+
+Nota de implementación:
+\begin{equation}
+PRN_{new} = PRN_{old} + (\Phi_t \cdot \Delta t \cdot \eta)
+\end{equation}
+
+\subsection{Flujo Instantáneo ($\Phi$)}
+\begin{equation}
+\Phi(t) = \frac{\text{sgn}(\Delta R(t))\cdot ER(t)}{T_{nodal}(t) + \epsilon}
+\end{equation}
+
+\subsection{Energía Relacional}
+\begin{equation}
+ER(t) = k\,T_{nodal}(t)\,[1 - H(t)]\,e^{-\Delta t / \tau}
+\end{equation}
+
+Interpretación:
+Si $H(t)\rightarrow 1$, entonces $ER(t)\rightarrow 0$ y el sistema deja de transferir valor.
+
+\subsection{Coherencia ($M_{pe}$)}
+\begin{equation}
+M_{pe} = \cos(\theta) = \frac{\vec{v}_{d} \cdot \vec{v}_{p}}{\|\vec{v}_{d}\|\,\|\vec{v}_{p}\|}
+\end{equation}
+
+\subsection{Habituación ($H$)}
+\begin{equation}
+H(t) = 1 - e^{-\lambda_h (t - t_{lastMdV})}
+\end{equation}
+
+Un Momento de la Verdad (MdV) resetea:
+\begin{equation}
+H(t_{MdV}) = 0
+\end{equation}
+
+---
+
+\section{Motor de Transición Markoviano}
+
+\begin{equation}
+P_{i \to j} \propto \exp\left( \frac{\Delta R(t) \cdot \kappa_{ij}}{\text{dist}(i,j)^{\gamma}} \right)
+\end{equation}
+
+Regla de negocio:
+Si $ER(t) > E_{critico}$ se permiten saltos no lineales ("Indiferente" → "Fiel").
+
+---
+
+\section{Condiciones de Estabilidad}
+
+\begin{itemize}
+  \item Muerte térmica: $T_{nodal} \approx 0$
+  \item Ruptura: $T_{nodal} > T_{critico}$
+\end{itemize}
+
+---
+
+\section{Validación de Calibración}
+
+El sistema debe ajustar parámetros para minimizar error entre trayectoria real y simulada.
+
+\begin{equation}
+MSE = \frac{1}{n}\sum (V_{sim} - V_{real})^2
+\end{equation}
+
+Parámetros ajustables:
+\begin{equation}
+\alpha,\beta,\gamma,\lambda_h,\lambda_U,\lambda_{PRN},\eta
+\end{equation}
+
+---
+
+\vfill
+\begin{center}
+\textit{Especificación generada por El Marcante V2 — basada estrictamente en Apéndice Académico V10.1}
+\end{center}
+
+\end{document}
