@@ -133,8 +133,6 @@ A. Ecuación General del Valor ($V_{10.1}$)
 
 La fórmula integra Potencial, Propósito, Protección Ambiental y Memoria Histórica.
 
-$$V(t) = \left[ (A+S) \cdot M_{pe} \cdot e^{\alpha U(t)} \right] \cdot \underbrace{\frac{e^{\beta P}}{1 + \Sigma e^{-\gamma U(t)}}}_{\text{Factor Elevador & Escudo}} + \underbrace{\eta \int_{t_0}^{t} \Phi(\tau) d\tau}_{\text{Patrimonio (Memoria)}}$$
-
 $$V(t) = \left[ (A+S) \cdot M_{pe} \cdot e^{\alpha U(t)} \right] \cdot \frac{e^{\beta P}}{1 + \Sigma e^{-\gamma U(t)}} + \eta \int_{t_0}^{t} \Phi(\tau) d\tau$$
 
 Nota Dev: El término integral se computa iterativamente como PRN_new = PRN_old + (Phi_t * delta_t * eta).
