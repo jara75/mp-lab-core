@@ -20,8 +20,9 @@ La unidad fundamental de la DB no es el "Usuario" ni la "Venta". Es el Snapshot 
 
 Estructura JSON del Vector de Estado (VER)
 
-`{
-  "timestamp": "ISO-8601 (YYYY-MM-DD)",
+```
+{
+"timestamp": "ISO-8601 (YYYY-MM-DD)",
   "type": "REAL" | "SIMULATION_A" | "SIMULATION_B",
   "state_vector": {
     "identity": {
@@ -44,7 +45,7 @@ Estructura JSON del Vector de Estado (VER)
     "source_event_id": "string", // Link al evento crudo que causó este estado
     "calibration_version": "v1.2" // Qué reglas de traducción se usaron
   }
-}`
+}
 ______
 
 
