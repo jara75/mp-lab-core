@@ -96,17 +96,27 @@ _____
 _____
 
 CAPA 3: MOTOR DE SIMULACIÓN Y CÁLCULO (The Oracle)
+
 ·  Input: System_Variables(t) + Intervention.
+
 ·  Logic: Algoritmo Híbrido (Monte Carlo + Física V10.1).
+
     1.  Clonación ($t_0$): Se toma el estado inicial validado.
+    
     2.  Bucle Monte Carlo (x1000 iteraciones):
+    
       ·  Para cada iteración $i$, se simula una trayectoria temporal $t \rightarrow t_{end}$.
       ·  Paso de Tiempo (Kernel V10.1): En cada mes $t$, se resuelve:
+      
           ·  $V(t)$ (Ecuación Maestra con ruido estocástico en $\Sigma$).
           ·  Integración de $\Phi$ para obtener Energía $E$ (PRN).
+          
           ·  Derivación de Momento $p$.
+          
           ·  Transición de Estado $x$ (Matriz Markoviana dependiente de $V$).
+          
     3.  Agregación: Se consolidan las 1000 trayectorias para calcular percentiles (5%, 50%, 95%).
+    
 ·  Output: Probabilistic_Fan_Chart (Abanico de Futuros Probables).
 
 CAPA 4: MÓDULO DE CALIBRACIÓN (The Scientist)
