@@ -99,7 +99,7 @@ $\lambda_h$ (Velocidad de olvido)
 
 $$MSE = \frac{1}{n} \sum (V_{sim} - V_{real})^2$$
 
-Especificación generada por El Marcante V2 - Basada estrictamente en Apéndice V10.1.
+Especificación generada por Andrés Jaramillo V2 - Basada estrictamente en Apéndice V10.1.
 
 _________
 
