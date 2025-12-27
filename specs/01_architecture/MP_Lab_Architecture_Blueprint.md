@@ -6,11 +6,11 @@ Target: Google Antigravity Dev Team
 
 1. PRINCIPIOS DE INGENIERÍA (THE MANIFESTO)
 
-  1.  State over Metrics: No guardamos métricas sueltas. Guardamos Vectores de Estado Relacional (VER) completos asociados a un timestamp $t$.
-  2.  Immutable History: El pasado (Rastro Relacional) es Read-Only. La base de datos histórica es un append-only log de estados confirmados.
-  3.  Multiverse Branching: La simulación no sobreescribe datos. Crea "ramas" temporales (Branch A, Branch B) divergentes desde un $t_0$, estilo Git.
-  4.  Stochastic Output: El backend nunca devuelve un escalar único para el futuro. Devuelve tensores de probabilidad (arrays de distribución).
-  5.  Privacy by Design (Vector Agregado): El sistema NO rastrea individuos ($User\_ID$). Opera exclusivamente sobre Segmentos de Audiencia ($V_{segmento}$). El Estado es un promedio ponderado de la "Nube de Audiencia", garantizando anonimato ético.
+       1.  State over Metrics: No guardamos métricas sueltas. Guardamos Vectores de Estado Relacional (VER) completos asociados a un timestamp $t$.
+       2.  Immutable History: El pasado (Rastro Relacional) es Read-Only. La base de datos histórica es un append-only log de estados confirmados.
+       3.  Multiverse Branching: La simulación no sobreescribe datos. Crea "ramas" temporales (Branch A, Branch B) divergentes desde un $t_0$, estilo Git.
+       4.  Stochastic Output: El backend nunca devuelve un escalar único para el futuro. Devuelve tensores de probabilidad (arrays de distribución).
+       5.  Privacy by Design (Vector Agregado): El sistema NO rastrea individuos ($User\_ID$). Opera exclusivamente sobre Segmentos de Audiencia ($V_{segmento}$). El Estado es un promedio ponderado de la "Nube de Audiencia", garantizando anonimato ético.
 
 2. MODELO DE DATOS (THE ATOMIC UNIT)
 
@@ -20,9 +20,10 @@ La unidad fundamental de la DB no es el "Usuario" ni la "Venta". La unidad funda
   {
   "timestamp": "ISO-8601 (YYYY-MM-DD)",
   "type": "REAL" | "SIMULATION_A" | "SIMULATION_B",
+  "segment_id": "string", // ID del Cluster de Audiencia (No Individual)
 
   // 1. EL VECTOR DE ESTADO RELACIONAL (Vs) - El Output Físico (Apendice V10.1 Sec 6.2)
-  // Representa la ubicación y cinética de la marca en el espacio relacional.
+  // Representa la ubicación y cinética del SEGMENTO en el espacio relacional.
   "relational_state_vector_Vs": {
     "x_position": "string",   // Posición: Estado en la taxonomía (ej: 'Retractor', 'Indiferente', 'Prospecto')
     "E_energy": "float",      // Energía: Nivel de PRN (Patrimonio Relacional Neto acumulado)
