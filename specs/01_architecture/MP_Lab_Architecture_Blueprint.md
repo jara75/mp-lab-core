@@ -149,4 +149,4 @@ El sistema se considera funcionalmente correcto solo si:
 
 ____________________
 
-Especificación generada por El Marcante V2 - Basada estrictamente en Apéndice V10.1.
+Especificación generada por El Marcante V2 -
