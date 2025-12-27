@@ -48,7 +48,7 @@ Interpretación: Si la Habituación $H(t)$ llega a 1 (aburrimiento total), la En
 
 
 C. Función de Coherencia ($M_{pe}$)
-Calculada trigonométricamente mediante producto punto de vectores normalizados.
+Calculada trigonométricamente mediante producto punto de vectores normalizados. Aunque $M_{pe}$ representa al Sujeto, su magnitud matemática se deriva de su coherencia.
 
 $$M_{pe} = \cos(\theta) = \frac{\vec{v}_{d} \cdot \vec{v}_{p}}{|\vec{v}_{d}| \cdot |\vec{v}_{p}|}$$
 
