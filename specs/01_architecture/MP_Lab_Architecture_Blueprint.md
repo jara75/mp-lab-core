@@ -34,10 +34,10 @@ La unidad fundamental de la DB no es el "Usuario" ni la "Venta". La unidad funda
   // Son los parámetros termodinámicos que generan el vector anterior.
   "system_physics_variables": {
     "identity_mechanics": {
-      "P_purpose": "float",       // Magnitud Propósito (Fuerza Negentrópica)
+      "P_purpose": "float",       // Magnitud Propósito (Fuerza Vectorial Negentrópica)
       "A_producto": "float",    // Valor de Atributos
       "S_": "float",       // Valor de Oferta (Amor, Respeto, Transparencia)
-      "Mpe_coherence": "float"    // Coherencia (Coseno de Theta Índice de Integridad, 0-1)
+      "Mpe_coherence": "float"    // Coherencia (Coseno de Theta entre Declarado vs Percibido)
     },
     "thermodynamics": {
       "U_comunia": "float",       // Temperatura del vínculo
