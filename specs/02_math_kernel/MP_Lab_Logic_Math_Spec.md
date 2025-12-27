@@ -5,23 +5,22 @@ Base Oficial: Apéndice Académico V10.1 (Corregido) - Dinámica de Vorticidad R
 
 1. DICCIONARIO DE VARIABLES (EL LENGUAJE DEL SISTEMA)
 
-| Símbolo    | Variable / Descripción         | Naturaleza    | Definición Operativa / Psicológica                         |
-| :---       | :---                           | :---          | :---                                                       |
-| A          | Atributos del producto         | Material      | Valor intrínseco tangible y funcional.                     |
-| S          | Oferta de servicio             | Material      | Condiciones de acceso y desempeño.                         |
-| Mpe        | Coherencia                     | Relacional    | Alineación identitaria (Cálculo trigonométrico).           |
-| U(t)       | Comunía                        | Clima         | Habitabilidad y escudo contra la interferencia.            |
-| P          | Propósito                      | Vectorial     | Fuerza negentrópica activa (Sentido).                      |
-| Σ          | Interferencia Externa          | Entrópica     | Ruido, competencia y saturación ambiental.                 |
-| V(t)       | Valor Personizante             | Sistémica     | Nivel energético global del sistema.                       |
-| Φ(t)       | Flujo Relacional               | Dinámica      | Intercambio instantáneo de valor.                          |
-| PRN(t)     | Patrimonio Relacional          | Acumulativa   | Capital histórico (Brand Equity).                          |
-| H(t)       | Habituación                    | Entrópica     | Memoria entrópica por monotonía (Aburrimiento).            |
-| R_MP       | Resistencia Activa             | Identidad     | Fuerza de coherencia interna y voluntad de ser.            |
-| R_P        | Resistencia Pasiva             | Entropía      | Inercia del mercado, cinismo, escepticismo.                |
-| ΔR         | Diferencial de Resistencia     | Motor         | Generador de Tensión Nodal (R_MP - R_P).                   |
+| Símbolo    | Variable / Descripción         | Naturaleza    | Definición Operativa / Psicológica                                             |
+| :---       | :---                           | :---          | :---                                                                           |
+| A          | Producto                       | Material      | Valor intrínseco tangible y funcional + Potencial Consustancial.               |
+| S          | Oferta                         | Material      | Condiciones de servicio, acceso y dignidad relacional.                         |
+| Mpe        | Marca Pesonizada               | Relacional    | Alineación identitaria (Cálculo trigonométrico).                               |
+| U(t)       | Comunía                        | Clima         | Habitabilidad y escudo contra la interferencia.                                |
+| P          | Propósito                      | Vectorial     | Fuerza negentrópica activa (Sentido).                                          |
+| Σ          | Interferencia Externa          | Entrópica     | Ruido, competencia y saturación ambiental.                                     |
+| V(t)       | Valor Relacional               | Sistémica     | Energía total del sistema en el tiempo $t$ (Resultado final).                  |
+| Φ(t)       | Flujo Relacional               | Dinámica      | Intercambio instantáneo de valor.                                              |
+| PRN(t)     | Patrimonio Relacional          | Acumulativa   | Capital histórico (Brand Equity).                                              |
+| H(t)       | Habituación                    | Entrópica     | Memoria entrópica por monotonía (Aburrimiento).                                |
+| R_MP       | Resistencia de la Marca        | Identidad     | Fuerza de coherencia interna y voluntad de ser de la marca.                    |
+| R_P        | Resistencia del Público        | Entropía      | Inercia del mercado, cinismo, escepticismo.                                    |
+| ΔR         | Diferencial de Resistencia     | Motor         | Generador de Tensión Nodal (R_MP - R_P).                                       |
 | η          | Conversión Patrimonial         | Empírico      | Coeficiente de acoplamiento financiero.    
-
 
 
 2. ECUACIONES MAESTRAS (EL KERNEL FÍSICO)
