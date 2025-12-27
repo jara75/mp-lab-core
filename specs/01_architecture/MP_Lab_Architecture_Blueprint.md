@@ -16,15 +16,17 @@ Target: Google Antigravity Dev Team
 
 2. MODELO DE DATOS (THE ATOMIC UNIT)
 
-La unidad fundamental de la DB no es el "Usuario" ni la "Venta". Es el Snapshot del Sistema en un instante $t$.
-
-Estructura JSON del Vector de Estado (VER)
+La unidad fundamental de la DB no es el "Usuario" ni la "Venta". La unidad fundamental de la DB es el Snapshot del Sistema en un instante $t$. Este objeto contiene dos estructuras separadas: el Vector de Estado Relacional (Resultado de Navegación) y las Variables del Sistema (Motores de Cálculo).
 
 ```
+  {
+  "timestamp": "ISO-8601 (YYYY-MM-DD)",
+  "type": "REAL" | "SIMULATION_A" | "SIMULATION_B",
+
   // 1. EL VECTOR DE ESTADO RELACIONAL (Vs) - El Output Físico (Apendice V10.1 Sec 6.2)
   // Representa la ubicación y cinética de la marca en el espacio relacional.
   "relational_state_vector_Vs": {
-    "x_position": "string",   // Posición: Estado en la taxonomía (ej: 'Cliente Fiel', 'Indiferente')
+    "x_position": "string",   // Posición: Estado en la taxonomía (ej: 'Retractor', 'Indiferente', 'Prospecto')
     "E_energy": "float",      // Energía: Nivel de PRN (Patrimonio Relacional Neto acumulado)
     "p_momentum": "float"     // Momento: Velocidad de cambio o Inercia del sistema
   },
@@ -34,9 +36,9 @@ Estructura JSON del Vector de Estado (VER)
   "system_physics_variables": {
     "identity_mechanics": {
       "P_purpose": "float",       // Magnitud Propósito (Fuerza Negentrópica)
-      "A_attributes": "float",    // Valor de Atributos
-      "S_service": "float",       // Valor de Oferta
-      "Mpe_coherence": "float"    // Coherencia (Coseno de Theta)
+      "A_producto": "float",    // Valor de Atributos
+      "S_": "float",       // Valor de Oferta (Amor, Respeto, Transparencia)
+      "Mpe_coherence": "float"    // Coherencia (Coseno de Theta Índice de Integridad, 0-1)
     },
     "thermodynamics": {
       "U_comunia": "float",       // Temperatura del vínculo
@@ -55,6 +57,7 @@ Estructura JSON del Vector de Estado (VER)
     "calibration_profile_id": "v1.2"
   }
 }
+
 ```
 
 3. PIPELINE DE PROCESAMIENTO (THE BACKEND FLOW)
@@ -65,7 +68,7 @@ CAPA 1: INGESTA & NORMALIZACIÓN (The Cleaning)
 
 ·  Input: CSVs, APIs externas (Salesforce, Analytics), Logs manuales.
 
-·  Process: Alineación temporal. Todo se normaliza a una frecuencia base (ej: Diaria o Semanal).
+·  Process: Alineación temporal. Todo se normaliza a una frecuencia base (ej: Diaria, Semanal o mensual).
 
 ·  Output: Raw_Time_Series_Data.
 
@@ -73,29 +76,30 @@ CAPA 2: MOTOR DE TRADUCCIÓN HEURÍSTICA (The IP Core)
 
 ·Input: Raw_Data + Translation_Rules (Configuración del Consultor).
 
-·Logic: Mapeo de métricas físicas a variables metafísicas.
+·Logic: Mapeo de métricas físicas a variables metafísicas del bloque system_physics_variables..
 
+_____ No va 
   ·  Regla Ej: IF (BounceRate > 60%) THEN (H += 0.05)
 
   ·  Regla Ej: IF (NPS_Promoter > 70) THEN (U += 0.1)
 
 ·  Output: Historical_State_Vectors (La "Verdad" del sistema).
+_____
 
-CAPA 3: MOTOR DE SIMULACIÓN (The Oracle)
+| Métrica de Origen (Input)       | Variable MP Afectada (Output)       | Lógica de Traducción (Ejemplo)                                 |
+| :---                            | :---                                | :---                                                           |
+| NPS (Promotores)                | U (Comunía)                         | Si NPS > 50, U += 0.2 (Inyección de temperatura).              |
+| Churn Rate (Tasa de Abandono)   | H (Habituación)                     | Si Churn sube, H tiende a 1 (Enfriamiento acelerado).          |
+| Share of Voice (Competencia)    | Σ (Interferencia)                   | Si SoV Competencia sube, Sigma aumenta (Mayor resistencia).    |
+| Campaña de Manifiesto           | P (Propósito)                       | Evento binario: Reactiva el vector P (Fuerza Negentrópica).    |
+| Quejas / Tickets de Soporte     | Mpe (Coherencia)                    | Si Quejas suben > 10%, Mpe baja (Incoherencia percibida).      |
+| Tiempo sin Interacción          | H (Habituación)                     | Función de decaimiento: H = 1 - e^(-lambda * tiempo).          |
 
-·  Input: State_Vector(t0) + Intervention_Vector (Acciones del usuario).
+·  Output: System_Variables_History.
 
-·  Logic: Monte Carlo + Cadenas de Markov.
+_____
 
-  1.  Clonar estado $t_0$.
-
-  2.  Aplicar Intervention (ej: inyectar MdV).
-
-  3.  Iterar $N$ pasos de tiempo usando Matriz de Transición $M(E)$.
-
-  4.  Repetir 1,000 veces para generar varianza.
-
-Output: Probabilistic_Fan_Chart (Percentiles 5, 50, 95).
+CAPA 3: MOTOR DE SIMULACIÓN Y CÁLCULO (The Oracle)Input: System_Variables(t) + Intervention.Logic: Algoritmo Híbrido (Monte Carlo + Física V10.1).Clonación ($t_0$): Se toma el estado inicial validado.Bucle Monte Carlo (x1000 iteraciones):Para cada iteración $i$, se simula una trayectoria temporal $t \rightarrow t_{end}$.Paso de Tiempo (Kernel V10.1): En cada mes $t$, se resuelve:$V(t)$ (Ecuación Maestra con ruido estocástico en $\Sigma$).Integración de $\Phi$ para obtener Energía $E$ (PRN).Derivación de Momento $p$.Transición de Estado $x$ (Matriz Markoviana dependiente de $V$).Agregación: Se consolidan las 1000 trayectorias para calcular percentiles (5%, 50%, 95%).Output: Probabilistic_Fan_Chart (Abanico de Futuros Probables).
 
 CAPA 4: MÓDULO DE CALIBRACIÓN (The Scientist)
 
