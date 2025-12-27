@@ -180,10 +180,73 @@ Objetivo: Permitir al consultor visualizar el tiempo como una dimensión navegab
 
      ·  Inputs: El usuario inyecta Acciones, no datos numéricos directos.
 
-     ·  Inyectar MdV: (Botón) Simula un evento de alto impacto (resetea $H$).
+       ·  Inyectar MdV: (Botón) Simula un evento de alto impacto (resetea $H$).
 
-     ·  Ajustar Tensión: (Slider) Modifica $\Delta R$.
+       ·  Ajustar Tensión: (Slider) Modifica $\Delta R$.
 
-     ·  Campaña de Propósito: (Toggle) Reactiva el vector $P$.Feedback: Al modificar, el gráfico futuro (Zona 4) se actualiza en tiempo real.
+       ·  Campaña de Propósito: (Toggle) Reactiva el vector $P$.Feedback: Al modificar, el gráfico futuro (Zona 4) se actualiza en tiempo real.
 
-   Modo B: Calibración (Validar)Propósito: Ajustar el modelo para que "encaje" con la historia real.Inputs: Sliders de ajuste fino de parámetros ($\alpha, \beta, \lambda$).Feedback: Indicador de "Error %" (MSE) que cambia de Rojo a Verde a medida que la curva simulada se superpone a la real.ZONA 4: VISOR DE PROYECCIÓN (Overlay Central/Inferior)Gráfico Principal: Fan Chart (Gráfico de Abanico Probabilístico).Semántica Visual:Línea Sólida: La Mediana (Trayectoria más probable).Sombreado: Intervalos de confianza (Incertidumbre estocástica).Colores: Azul (Escenario A - Control) vs. Rojo (Escenario B - Intervención).UX: Debe permitir hacer zoom y ver los valores futuros proyectados al pasar el mouse (tooltip con $t+1, t+2...$).2. FLUJO DE USUARIO (USER JOURNEY)Escenario 1: El Diagnóstico (El Médico)Usuario entra y ve la historia completa de la marca (Rastro Relacional).Hace scroll y detecta una caída en la curva $V(t)$.Hace clic en el punto de inflexión.El Snapshot (Zona 2) le revela la causa física: "En este punto, la Habituación ($H$) subió drásticamente y el Flujo ($\Phi$) se detuvo".Escenario 2: La Estrategia (El Ajedrecista)Usuario selecciona "HOY" como $t_0$.Activa "Modo Simulación".En el Escenario B, pulsa "Inyectar MdV Catalizador" para el mes próximo.El Visor (Zona 4) muestra cómo la curva roja se dispara hacia arriba, separándose de la azul (inercial).Insight: "Si intervenimos, recuperamos el PRN en 3 meses".Escenario 3: La Calibración (El Científico)Usuario selecciona una fecha de hace 6 meses.Activa "Modo Calibración".El sistema proyecta una línea punteada (lo que el modelo cree que pasó) sobre la línea sólida (lo que realmente pasó).Usuario ajusta la sensibilidad $\alpha$ hasta que las líneas coinciden.Resultado: El modelo ha "aprendido" la física específica de esta marca.3. ESTILO VISUAL Y FEELINGTema: Dark Mode preferente (Estética de Laboratorio/Ingeniería, no de Marketing).Tipografía: Monospace para datos (estilo terminal), Sans-serif limpia para etiquetas.Colores Semánticos:Energía/Valor ($V, E$) = Dorado/Amarillo.Comunía ($U$) = Cian/Azul Eléctrico.Riesgo/Entropía ($H, \Sigma$) = Rojo/Naranja.Animación: Transiciones suaves al mover el tiempo. Los números no "saltan", fluyen como un contador analógico.
+     ·  Feedback: Al modificar, el gráfico futuro (Zona 4) se actualiza en tiempo real.
+
+   Modo B: Calibración (Validar)
+
+     ·  Propósito: Ajustar el modelo para que "encaje" con la historia real.
+
+     ·  Inputs: Sliders de ajuste fino de parámetros ($\alpha, \beta, \lambda$).
+
+     ·  Feedback: Indicador de "Error %" (MSE) que cambia de Rojo a Verde a medida que la curva simulada se superpone a la real.
+
+   ZONA 4: VISOR DE PROYECCIÓN (Overlay Central/Inferior)
+
+     ·  Gráfico Principal:Fan Chart (Gráfico de Abanico Probabilístico).
+
+     ·  Semántica Visual:
+
+       ·  Línea Sólida: La Mediana (Trayectoria más probable).
+
+       ·  Sombreado: Intervalos de confianza (Incertidumbre estocástica).
+
+       ·  Colores: Azul (Escenario A - Control) vs. Rojo (Escenario B - Intervención).
+
+    ·  UX: Debe permitir hacer zoom y ver los valores futuros proyectados al pasar el mouse (tooltip con $t+1, t+2...$).
+
+   2. FLUJO DE USUARIO (USER JOURNEY)
+      
+     Escenario 1: El Diagnóstico (El Médico)
+
+     1.  Usuario entra y ve la historia completa de la marca (Rastro Relacional).
+     2.  Hace scroll y detecta una caída en la curva $V(t)$.
+     3.  Hace clic en el punto de inflexión.
+     4.  El Snapshot (Zona 2) le revela la causa física: "En este punto, la Habituación ($H$) subió drásticamente y el Flujo ($\Phi$) se detuvo".
+
+    Escenario 2: La Estrategia (El Ajedrecista)
+    
+     1.  Usuario selecciona "HOY" como $t_0$.
+     2.  Activa "Modo Simulación".
+     3.  En el Escenario B, pulsa "Inyectar MdV Catalizador" para el mes próximo.
+     4.  El Visor (Zona 4) muestra cómo la curva roja se dispara hacia arriba, separándose de la azul (inercial).
+     5.  Insight: "Si intervenimos, recuperamos el PRN en 3 meses".
+
+    Escenario 3: La Calibración (El Científico)
+
+     1.  Usuario selecciona una fecha de hace 6 meses.
+     2.  Activa "Modo Calibración".
+     3.  El sistema proyecta una línea punteada (lo que el modelo cree que pasó) sobre la línea sólida (lo que realmente pasó).
+     4.  Usuario ajusta la sensibilidad $\alpha$ hasta que las líneas coinciden.
+     5.  Resultado: El modelo ha "aprendido" la física específica de esta marca.
+
+  3.  ESTILO VISUAL Y FEELING
+
+    ·  Tema: Dark Mode preferente (Estética de Laboratorio/Ingeniería, no de Marketing).
+    
+    ·  Tipografía: Monospace para datos (estilo terminal), Sans-serif limpia para etiquetas.
+    
+    ·  Colores Semánticos:
+    
+        ·  Energía/Valor ($V, E$) = Dorado/Amarillo.
+        
+        ·  Comunía ($U$) = Cian/Azul Eléctrico.
+        
+        ·  Riesgo/Entropía ($H, \Sigma$) = Rojo/Naranja.
+    
+    ·  Animación: Transiciones suaves al mover el tiempo. Los números no "saltan", fluyen como un contador analógico.
