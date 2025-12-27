@@ -54,11 +54,11 @@ $$M_{pe} = \cos(\theta) = \frac{\vec{v}_{d} \cdot \vec{v}_{p}}{|\vec{v}_{d}| \cd
 
 Rango:
 
-$1.0$: Coherencia Total ($0^\circ$).
+$1.0$: Marca Personizada Plena (Coherencia Total).
 
-$0.0$: Irrelevancia ($90^\circ$).
+$0.0$: Marca Objeto / Irrelevancia.
 
-$-1.0$: Incoherencia/Traición ($180^\circ$).
+$-1.0$: Marca Traidora / Incoherencia.
 
 D. Ley de Habituación ($H$)
 Modelado del decaimiento del interés en ausencia de novedades (Momentos de la Verdad).
@@ -75,7 +75,7 @@ Las probabilidades de transición en la matriz $M$ no son estáticas. Dependen d
 
 $$P_{i \to j} \propto \exp\left( \frac{\Delta R(t) \cdot \kappa_{ij}}{\text{dist}(i,j)^\gamma} \right)$$
 
-Regla de Negocio: Si $ER(t) > E_{critico}$, se habilitan transiciones no-lineales (saltos directos de "Indiferente" a "Fiel").
+Regla de Negocio: Si $ER(t) > E_{critico}$, se habilitan transiciones no-lineales (saltos directos de "Indiferente" a "Comprador Habitual").
 
 Condiciones de Estabilidad (Watchdog)
 
