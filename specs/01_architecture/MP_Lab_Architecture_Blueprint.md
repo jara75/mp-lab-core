@@ -131,7 +131,7 @@ CAPA 4: MÓDULO DE CALIBRACIÓN (The Scientist)
 | Backend Calculation     | Python (FastAPI + NumPy/Pandas)     | Necesario para cálculo matricial pesado y Monte Carlo.                         |
 | API Layer               | GraphQL                             | Permite pedir solo los campos necesarios del Vector de Estado complejo.        |
 | Database                | PostgreSQL (JSONB) o TimeScaleDB    | Manejo eficiente de series temporales y estructuras JSON complejas.            |
-| Frontend State          | Redux / Pinia (Store)               | El "Snapshot" debe vivir en el store global del cliente para navegación rápida.|
+| Frontend State          | React / Redux / Pinia (Store)       | El "Snapshot" debe vivir en el store global del cliente para navegación rápida.|
 | Versioning              | Git-like Logic (Custom)             | Implementar lógica de ramas (Master/Branch) para los escenarios.               |
 
 
@@ -148,3 +148,5 @@ El sistema se considera funcionalmente correcto solo si:
 4.  Consistencia: La suma de probabilidades de Markov siempre da 100%.
 
 ____________________
+
+Especificación generada por El Marcante V2 - Basada estrictamente en Apéndice V10.1.
