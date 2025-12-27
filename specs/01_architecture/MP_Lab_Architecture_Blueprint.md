@@ -66,20 +66,19 @@ El sistema opera en 4 capas secuenciales estrictas.
 
 CAPA 1: INGESTA & NORMALIZACIÓN (The Cleaning)
 
-·  Input: CSVs, APIs externas (Salesforce, Analytics), Logs manuales.
+  ·  Input: CSVs, APIs externas (Salesforce, Analytics), Logs manuales.
 
-·  Process: Alineación temporal. Todo se normaliza a una frecuencia base (ej: Diaria, Semanal o mensual).
+  ·  Process: Alineación temporal. Todo se normaliza a una frecuencia base (ej: Diaria, Semanal o mensual).
 
-·  Output: Raw_Time_Series_Data.
+  ·  Output: Raw_Time_Series_Data.
 
 CAPA 2: MOTOR DE TRADUCCIÓN HEURÍSTICA (The IP Core)
 
-·Input: Raw_Data + Translation_Rules (Configuración del Consultor).
+  ·  Input: Raw_Data + Translation_Rules (Configuración del Consultor).
 
-·Logic: Mapeo de métricas físicas a variables metafísicas del bloque system_physics_variables..
+  ·  Logic: Mapeo de métricas físicas a variables metafísicas del bloque system_physics_variables..
 
-
-·  Output: Historical_State_Vectors (La "Verdad" del sistema).
+  ·  Output: Historical_State_Vectors (La "Verdad" del sistema).
 _____
 
 | Métrica de Origen (Input)       | Variable MP Afectada (Output)       | Lógica de Traducción (Ejemplo)                                 |
